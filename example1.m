@@ -68,7 +68,6 @@ param_init.R = R;
 param_init.Xo = Xo;
 param_init.Po = Po;
 
-max_iter = 20;
 
-[paramEstim] = em_kalman_abcd(Y, U, param_init, max_iter)
+[paramEstim] = em_kalman_abcd(Y, U, param_init)
 

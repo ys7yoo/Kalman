@@ -56,3 +56,19 @@ figure(3)
 clf
 plot(X(:), Xp(:), 'o')
 axis equal
+
+
+%% estimate param from (X,Y)
+param_init.A = A;
+param_init.B = B;
+param_init.C = C;
+param_init.D = D;
+param_init.Q = Q
+param_init.R = R;
+param_init.Xo = Xo;
+param_init.Po = Po;
+
+max_iter = 20;
+
+[paramEstim] = em_kalman_abcd(Y, U, param_init, max_iter)
+

@@ -8,7 +8,7 @@ function [X,Y] = generate_lds(U, A, B, C, D, Q, R, initX, initV)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 T = size(U,2);
-[os ss] = size(C);
+[os, ss] = size(C);
 X = zeros(ss, T);
 Y = zeros(os, T);
 

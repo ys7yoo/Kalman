@@ -41,33 +41,36 @@ Po = initV;
 figure(2)
 clf
 subplot(211)
-plot(Xp(1,:)'); hold on
+plot(Xf(1,:)'); hold on
 plot(X(1,:)', '--')
 ylabel('X_n(1)')
 
 legend('estim', 'true')
 
 subplot(212)
-plot(Xp(2,:)'); hold on
+plot(Xf(2,:)'); hold on
 plot(X(2,:)', '--')
 ylabel('X_n(2)')
 
 figure(3)
 clf
-plot(X(:), Xp(:), 'o')
+plot(X(:), Xf(:), 'o')
+xlabel('true X_n')
+ylabel('estimated X_n')
+
 axis equal
 
 
 %% estimate param from (X,Y)
-param_init.A = A;
-param_init.B = B;
-param_init.C = C;
+param_init.A = A+0.1*randn(2,2);
+param_init.B = B+0.1*randn(2,1);
+param_init.C = C+0.1*randn(1,2);
 param_init.D = D;
-param_init.Q = Q
+param_init.Q = Q;
 param_init.R = R;
 param_init.Xo = Xo;
 param_init.Po = Po;
 
 
-[paramEstim] = em_kalman_abcd(Y, U, param_init)
+[param_estim] = em_kalman_abcd(Y, U, param_init)
 
